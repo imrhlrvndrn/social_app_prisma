@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { AuthStatus } from '@/app/components/AuthStatus';
+import { AuthStatus } from '@/components/AuthStatus';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 

@@ -1,5 +1,5 @@
-import { Nav } from '@/app/components/Nav';
-import { QueryWrapper } from '@/app/components/QueryWrapper';
+import { Nav } from '@/components/Nav';
+import { QueryWrapper } from '@/components/QueryWrapper';
 import './globals.css';
 import { Inter } from 'next/font/google';
 

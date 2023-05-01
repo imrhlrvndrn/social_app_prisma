@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactNode } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 type QueryProps = {
     children?: ReactNode;
@@ -10,5 +11,8 @@ type QueryProps = {
 const queryClient = new QueryClient();
 
 export const QueryWrapper = ({ children }: QueryProps) => (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+        <Toaster />
+        {children}
+    </QueryClientProvider>
 );
