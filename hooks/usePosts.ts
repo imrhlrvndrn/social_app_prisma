@@ -18,7 +18,7 @@ export const usePosts = () => {
     };
 
     const deletePostMutation = async (postId: string) => {
-        await axios.delete(`/posts/delete-post`, { data: postId });
+        await axios.post(`/posts/delete-post`, { postId });
     };
 
     return { deletePostMutation, createPostMutation, getEveryUsersPostsQuery, getMyPostsQuery };
