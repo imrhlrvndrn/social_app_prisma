@@ -7,6 +7,18 @@ export const usePosts = () => {
         });
     };
 
+    const createCommentMutation = async (fields: { content: string; postId: string }) => {
+        await axios.post(`/posts/add-comment`, {
+            content: fields?.content,
+            postId: fields?.postId,
+        });
+    };
+
+    const getAllCommentsOfPostById = async (postId: string) => {
+        const result = await axios.get(`/posts/post-comments`);
+        return result.data;
+    };
+
     const getEveryUsersPostsQuery = async () => {
         const result = await axios.get('/posts/get-posts');
         return result.data;
@@ -18,8 +30,23 @@ export const usePosts = () => {
     };
 
     const deletePostMutation = async (postId: string) => {
-        await axios.post(`/posts/delete-post`, { postId });
+        const result = await axios.post(`/posts/delete-post`, { postId });
+
+        return result.data;
     };
 
-    return { deletePostMutation, createPostMutation, getEveryUsersPostsQuery, getMyPostsQuery };
+    const getPostByIdQuery = async (postId: string) => {
+        const result = await axios.get(`/posts/${postId}`);
+        return result.data;
+    };
+
+    return {
+        getPostByIdQuery,
+        deletePostMutation,
+        createPostMutation,
+        createCommentMutation,
+        getEveryUsersPostsQuery,
+        getMyPostsQuery,
+        getAllCommentsOfPostById,
+    };
 };

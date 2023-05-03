@@ -14,6 +14,8 @@ type CommentType = {
     createdAt: string;
     postId: string;
     userId: string;
+    user: UserType;
+    post: PostType;
     content: string;
 };
 

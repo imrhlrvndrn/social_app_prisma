@@ -9,6 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (!session?.user?.email)
             return res.status(403).json({ message: 'Please sign in to delete posts.' });
 
+        // Delete a post
         try {
             const result = await prisma.post.delete({
                 where: { id: req.body.postId },
