@@ -25,7 +25,7 @@ export default function PostPage({ params }: PostPageProps) {
             <Post post={data as PostType} />
             <AddComment />
             {data?.comments?.map((comment) => (
-                <div className='bg-gray-900 my-8 p-8 rounded-lg'>
+                <div key={comment.id} className='bg-gray-900 my-8 p-8 rounded-lg'>
                     <div className='flex items-center gap-2'>
                         <Image
                             className='rounded-full'
